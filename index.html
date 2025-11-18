@@ -58,6 +58,21 @@
             align-items: center;
         }
 
+        .info-cont {
+            flex-shrink: 1;    
+            width: auto; 
+            max-width: 100%;
+            overflow: hidden; 
+            min-width: 0;
+        }
+
+        .info-cont p {    
+            max-width: 100%;
+            overflow-wrap: break-word;    
+            white-space: normal; 
+        }
+
+       
         .nav-link {
             color: white;
             text-decoration: none;
@@ -82,8 +97,7 @@
         }
 
         /* Hero Section */
-        .hero {
-            background: linear-gradient(to bottom, #e8f4f8 0%, #f5f5f5 100%);
+        .hero {            
             display: grid;
             grid-template-columns: 1fr 1fr;
             min-height: 500px;
@@ -113,15 +127,16 @@
         }
 
         .hero-image {
-            position: relative;
+            position: absolute;
             overflow: hidden;
+            z-index: -1;      
         }
 
         .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: left center;
+            object-position: center;            
         }
 
         /* Services Section */
@@ -140,7 +155,7 @@
             padding: 50px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 15px;
         }
 
         .service-card {
@@ -149,13 +164,16 @@
             padding: 35px 40px;
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 5px;
         }
 
         .service-icon {
             width: 70px;
             height: 70px;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+
         }
 
         .service-title {
@@ -214,8 +232,8 @@
         .services-banner {
             background: #B8E5E5;
             border-radius: 35px;
-            margin: 50px 80px;
-            padding: 50px 60px;
+            margin: 50px 50px 80px 80px;
+            padding: 50px 50px 0px 60px;
             display: grid;
             grid-template-columns: 1.5fr 1fr;
             gap: 50px;
@@ -238,6 +256,20 @@
         .banner-image img {
             width: 100%;
             max-width: 350px;
+        }
+
+       .banner-image-tooth img {
+            height: auto; /* Cambiar de 25px a auto */
+            max-height: 480px; /* Añadir esto */
+            max-width: 100%; /* Cambiar de 350px a 100% */
+            margin-top: 0px;          
+            padding-top: 0px;
+            object-fit: contain; /* Añadir esto */
+        }
+       
+        banner-image-tooth {
+            margin-top: 0px;          
+            padding-top: 0px;
         }
 
         .services-grid-section {
@@ -282,6 +314,7 @@
             font-weight: 700;
         }
 
+       
         /* Footer */
         footer {
             background: #0B7FB8;
@@ -332,7 +365,7 @@
             nav.active {
                 display: flex;
                 position: absolute;
-                top: 100%;
+                top: 19%;
                 left: 0;
                 right: 0;
                 background: #0A6B9F;
@@ -412,12 +445,7 @@
     <!-- Header -->
     <header>
         <div class="logo-section">
-            <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 15 C32 15 20 27 20 45 C20 53 24 60 30 64 L30 80 C30 82 32 84 34 84 L66 84 C68 84 70 82 70 80 L70 64 C76 60 80 53 80 45 C80 27 68 15 50 15 Z" 
-                      fill="none" stroke="white" stroke-width="4" stroke-linejoin="round"/>
-                <path d="M35 37 Q42 32 50 32 Q58 32 65 37" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
-                <circle cx="50" cy="48" r="7" fill="white"/>
-            </svg>
+            <img height="38px" src="iconos/diente.png" alt="Vital Dent Logo" class="logo-icon">
             <div class="logo-text">
                 <h1>VITAL DENT</h1>
                 <p>Clínica Odontológica</p>
@@ -444,8 +472,8 @@
                 <p>Ofrecemos atención odontológica profesional, personalizada y de alta calidad para toda la familia.</p>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop&crop=faces" alt="Dentista profesional">
-            </div>
+                <img src="imagenes/imagen1.jpg" alt="Dentista profesional">
+            </div>            
         </section>
 
         <!-- Services with Contact Card -->
@@ -454,51 +482,28 @@
                 <!-- Service Cards -->
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="22" y="20" width="8" height="65" fill="none" stroke="#002B49" stroke-width="3" rx="2"/>
-                            <ellipse cx="26" cy="30" rx="18" ry="20" fill="none" stroke="#002B49" stroke-width="3"/>
-                            <path d="M40 28 L58 18 M40 32 L58 42" stroke="#002B49" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="58" cy="18" r="5" fill="#002B49"/>
-                            <circle cx="58" cy="42" r="5" fill="#002B49"/>
-                        </svg>
+                       <img height="72px" src="iconos/icono1.png" alt="Revisiones y limpieza">
                     </div>
                     <h3 class="service-title">Revisiones y limpieza</h3>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="28" y="25" width="44" height="12" rx="2" fill="none" stroke="#002B49" stroke-width="3"/>
-                            <rect x="32" y="37" width="36" height="8" rx="1" fill="none" stroke="#002B49" stroke-width="3"/>
-                            <rect x="35" y="45" width="30" height="8" rx="1" fill="none" stroke="#002B49" stroke-width="3"/>
-                            <rect x="39" y="53" width="22" height="8" rx="1" fill="none" stroke="#002B49" stroke-width="3"/>
-                            <line x1="32" y1="66" x2="68" y2="66" stroke="#002B49" stroke-width="3"/>
-                            <path d="M38 66 L38 76 L62 76 L62 66" fill="none" stroke="#002B49" stroke-width="3"/>
-                        </svg>
+                        <img height="32px" src="iconos/icono2.png" alt="Ortodoncia">
                     </div>
-                    <h3 class="service-title">Ortodoncia</h3>
+                    <h3 class="service-title">&nbsp; Ortodoncia</h3>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="32" r="13" fill="none" stroke="#002B49" stroke-width="3"/>
-                            <path d="M50 45 L50 58" stroke="#002B49" stroke-width="3"/>
-                            <path d="M36 58 L64 58 L62 74 L38 74 Z" fill="none" stroke="#002B49" stroke-width="3"/>
-                            <line x1="43" y1="68" x2="57" y2="68" stroke="#002B49" stroke-width="2.5"/>
-                        </svg>
+                         <img height="58px" src="iconos/icono3.png" alt="Implantes dentales">
                     </div>
                     <h3 class="service-title">Implantes dentales</h3>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M50 22 C34 22 24 32 24 47 C24 54 27 60 32 64 L32 78 C32 80 34 82 36 82 L64 82 C66 82 68 80 68 78 L68 64 C73 60 76 54 76 47 C76 32 66 22 50 22 Z" 
-                                  fill="none" stroke="#002B49" stroke-width="3"/>
-                            <circle cx="50" cy="47" r="7" fill="#002B49"/>
-                            <path d="M37 35 Q43 31 50 31 Q57 31 63 35" fill="none" stroke="#002B49" stroke-width="2.5" stroke-linecap="round"/>
-                        </svg>
+                        <img height="58px" src="iconos/icono4.png" alt="Blanqueamiento dental">
                     </div>
                     <h3 class="service-title">Blanqueamiento dental</h3>
                 </div>
@@ -549,12 +554,12 @@
     <div id="servicios" class="page">
         <!-- Banner -->
         <section class="services-banner">
-            <div>
+            <div class="info-cont">
                 <h2>Tratamientos Odontológicos</h2>
                 <p>En nuestra clínica ofrecemos una amplia gama de tratamientos diseñados para atender desde necesidades básicas de higiene hasta procedimientos avanzados de rehabilitación y estética dental. Todos nuestros servicios son realizados por especialistas certificados utilizando tecnología moderna y materiales de alta calidad.</p>
             </div>
-            <div class="banner-image">
-                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&h=400&fit=crop" alt="Tratamientos dentales">
+            <div class="banner-image-tooth">
+                <img height="480px" src="imagenes/diente1-img.png" alt="Tratamientos dentales">
             </div>
         </section>
 
@@ -562,42 +567,42 @@
         <section class="services-grid-section">
             <div class="services-grid-container">
                 <div class="service-box">
-                    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&h=300&fit=crop" alt="Revisiones">
+                    <img src="imagenes/imagen3.jpg" alt="Revisiones">
                     <div class="service-overlay">
                         <h3>Revisiones y limpieza</h3>
                     </div>
                 </div>
 
                 <div class="service-box">
-                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=400&h=300&fit=crop" alt="Ortodoncia">
+                    <img src="imagenes/imagen4.jpg" alt="Ortodoncia">
                     <div class="service-overlay">
                         <h3>Ortodoncia</h3>
                     </div>
                 </div>
 
                 <div class="service-box">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&h=300&fit=crop" alt="Ortodoncia estética">
+                    <img src="imagenes/imagen5.jpg" alt="Ortodoncia estética">
                     <div class="service-overlay">
                         <h3>Ortodoncia estética</h3>
                     </div>
                 </div>
 
                 <div class="service-box">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&h=300&fit=crop&crop=left" alt="Implantes">
+                    <img src="imagenes/imagen6.jpg" alt="Implantes">
                     <div class="service-overlay">
                         <h3>Implantes dentales</h3>
                     </div>
                 </div>
 
                 <div class="service-box">
-                    <img src="https://images.unsplash.com/photo-1609840114035-3c981407e31f?w=400&h=300&fit=crop" alt="Blanqueamiento">
+                    <img src="imagenes/imagen7.jpg" alt="Blanqueamiento">
                     <div class="service-overlay">
-                        <h3>Blanqueamiento dental</h3>
+                        <h3>Blanqueo dental</h3>
                     </div>
                 </div>
 
                 <div class="service-box">
-                    <img src="https://images.unsplash.com/photo-1626736985932-77b57d3a3bb4?w=400&h=300&fit=crop" alt="Odontopediatría">
+                    <img src="imagenes/imagen8.jpg" alt="Odontopediatría">
                     <div class="service-overlay">
                         <h3>Odontopediatría</h3>
                     </div>
@@ -614,9 +619,9 @@
                 <p style="margin-bottom: 30px;">Si tienes preguntas sobre nuestros modelos, servicios o quieres agendar una prueba de manejo, contáctanos.</p>
                 
                 <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">También puedes contactarnos directamente.</h3>
-                <p>• Teléfono: 2247-3500</p>
-                <p>• Correo: contacto@kiaficticia.com</p>
-                <p>• Dirección: Prolongación Alameda Juan Pablo II y 51 Av. Norte, San Salvador. Edificio Kia.</p>
+                <p>• Teléfono: 123-456-7890</p>
+                <p>• Correo: vitaldent@gmail.com</p>
+                <p>• Dirección: Ab Siempre Viva 123, San Salvador</p>
                 
                 <h3 style="font-size: 24px; font-weight: 700; margin: 25px 0 15px;">Horarios:</h3>
                 <p>• Lunes a viernes: 8:00 a.m. a 5:30 p.m.</p>
@@ -624,9 +629,13 @@
                 <p>• Domingo: cerrado.</p>
             </div>
             <div class="banner-image">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=400&fit=crop" alt="Contacto">
+                <img width="80%" src="imagenes/atent.jpg" alt="Contacto">
+                <br/>
             </div>
         </section>
+        <div>
+            <br/>
+        </div>
     </div>
 
     <!-- Footer -->
