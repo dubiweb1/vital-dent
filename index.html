@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalDent - Clínica Odontológica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            color: #002B49;
+            line-height: 1.5;
+        }
+
+        /* Header */
+        header {
+            background: #0B7FB8;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+        }
+
+        .logo-text h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin: 0;
+        }
+
+        .logo-text p {
+            color: white;
+            font-size: 13px;
+            font-weight: 400;
+            margin: -2px 0 0 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .menu-icon {
+            display: none;
+            width: 35px;
+            height: 25px;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .menu-icon span {
+            display: block;
+            height: 4px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {            
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            padding: 80px 50px 80px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-content h2 {
+            font-size: 56px;
+            font-weight: 800;
+            color: #002B49;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            color: #002B49;
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        .hero-image {
+            position: absolute;
+            overflow: hidden;
+            z-index: -1;      
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;            
+        }
+
+        /* Services Section */
+        .services-wrapper {
+            padding: 60px 80px;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .services-container {
+            background: #e5e5e5;
+            border-radius: 40px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px 40px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #002B49;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: #002B49;
+            border-radius: 35px;
+            padding: 50px 45px;
+            width: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .contact-text h3 {
+            color: white;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .contact-text p {
+            color: white;
+            font-size: 18px;
+            margin: 2px 0 0 0;
+        }
+
+        /* Services Detail Page */
+        .services-banner {
+            background: #B8E5E5;
+            border-radius: 35px;
+            margin: 50px 50px 80px 80px;
+            padding: 50px 50px 0px 60px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .services-banner h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: #002B49;
+            margin-bottom: 20px;
+        }
+
+        .services-banner p {
+            font-size: 18px;
+            color: #002B49;
+            line-height: 1.7;
+        }
+
+        .banner-image img {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        banner-image-tooth img {
+            height: 25px;
+            max-width: 350px; 
+            margin-top: 0px;          
+            padding-top: 0px;            
+        }
+       
+        banner-image-tooth {
+            margin-top: 0px;          
+            padding-top: 0px;
+        }
+
+        .services-grid-section {
+            padding: 0 80px 60px;
+        }
+
+        .services-grid-container {
+            background: #e5e5e5;
+            border-radius: 40px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-box {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            height: 270px;
+        }
+
+        .service-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #002B49;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .service-overlay h3 {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+       
+        /* Footer */
+        footer {
+            background: #0B7FB8;
+            color: white;
+            text-align: center;
+            padding: 30px 80px;
+        }
+
+        footer p {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Page visibility */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .services-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 968px) {
+            header {
+                padding: 20px 30px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .menu-icon {
+                display: flex;
+            }
+
+            nav.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0A6B9F;
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 60px 30px;
+            }
+
+            .hero-content h2 {
+                font-size: 42px;
+            }
+
+            .hero-image {
+                height: 400px;
+            }
+
+            .services-wrapper {
+                padding: 50px 30px;
+                grid-template-columns: 1fr;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+            }
+
+            .contact-card {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .services-banner {
+                margin: 40px 30px;
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+            }
+
+            .services-grid-section {
+                padding: 0 30px 50px;
+            }
+
+            .services-grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 40px 30px;
+            }
+
+            footer {
+                padding: 25px 30px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-content h2 {
+                font-size: 36px;
+            }
+
+            .service-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .services-grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-section">
+            <img height="38px" src="iconos/diente.png" alt="Vital Dent Logo" class="logo-icon">
+            <div class="logo-text">
+                <h1>VITAL DENT</h1>
+                <p>Clínica Odontológica</p>
+            </div>
+        </div>
+        <nav id="mainNav">
+            <a href="#" class="nav-link" onclick="showPage('inicio')">Inicio</a>
+            <a href="#" class="nav-link" onclick="showPage('servicios')">Servicios</a>
+            <a href="#" class="nav-link" onclick="showPage('contactos')">Contactos</a>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Página Inicio -->
+    <div id="inicio" class="page active">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Tu sonrisa es nuestra prioridad</h2>
+                <p>Ofrecemos atención odontológica profesional, personalizada y de alta calidad para toda la familia.</p>
+            </div>
+            <div class="hero-image">
+                <img src="imagenes/imagen1.jpg" alt="Dentista profesional">
+            </div>            
+        </section>
+
+        <!-- Services with Contact Card -->
+        <section class="services-wrapper">
+            <div class="services-container">
+                <!-- Service Cards -->
+                <div class="service-card">
+                    <div class="service-icon">
+                       <img height="72px" src="iconos/icono1.png" alt="Revisiones y limpieza">
+                    </div>
+                    <h3 class="service-title">Revisiones y limpieza</h3>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img height="32px" src="iconos/icono2.png" alt="Ortodoncia">
+                    </div>
+                    <h3 class="service-title">&nbsp; Ortodoncia</h3>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                         <img height="58px" src="iconos/icono3.png" alt="Implantes dentales">
+                    </div>
+                    <h3 class="service-title">Implantes dentales</h3>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img height="58px" src="iconos/icono4.png" alt="Blanqueamiento dental">
+                    </div>
+                    <h3 class="service-title">Blanqueamiento dental</h3>
+                </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="contact-card">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text">
+                        <h3>123-456-7890</h3>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Av. Siempre Viva 123</h3>
+                        <p>San Salvador</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text">
+                        <h3>vitaldent@gmail.com</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Página Servicios -->
+    <div id="servicios" class="page">
+        <!-- Banner -->
+        <section class="services-banner">
+            <div>
+                <h2>Tratamientos Odontológicos</h2>
+                <p>En nuestra clínica ofrecemos una amplia gama de tratamientos diseñados para atender desde necesidades básicas de higiene hasta procedimientos avanzados de rehabilitación y estética dental. Todos nuestros servicios son realizados por especialistas certificados utilizando tecnología moderna y materiales de alta calidad.</p>
+            </div>
+            <div class="banner-image-tooth">
+                <img height="480px" src="imagenes/diente1-img.png" alt="Tratamientos dentales">
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid-section">
+            <div class="services-grid-container">
+                <div class="service-box">
+                    <img src="imagenes/imagen3.jpg" alt="Revisiones">
+                    <div class="service-overlay">
+                        <h3>Revisiones y limpieza</h3>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <img src="imagenes/imagen4.jpg" alt="Ortodoncia">
+                    <div class="service-overlay">
+                        <h3>Ortodoncia</h3>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <img src="imagenes/imagen5.jpg" alt="Ortodoncia estética">
+                    <div class="service-overlay">
+                        <h3>Ortodoncia estética</h3>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <img src="imagenes/imagen6.jpg" alt="Implantes">
+                    <div class="service-overlay">
+                        <h3>Implantes dentales</h3>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <img src="imagenes/imagen7.jpg" alt="Blanqueamiento">
+                    <div class="service-overlay">
+                        <h3>Blanqueo dental</h3>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <img src="imagenes/imagen8.jpg" alt="Odontopediatría">
+                    <div class="service-overlay">
+                        <h3>Odontopediatría</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Página Contactos -->
+    <div id="contactos" class="page">
+        <section class="services-banner">
+            <div>
+                <h2>Estamos aquí para ayudarte</h2>
+                <p style="margin-bottom: 30px;">Si tienes preguntas sobre nuestros modelos, servicios o quieres agendar una prueba de manejo, contáctanos.</p>
+                
+                <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">También puedes contactarnos directamente.</h3>
+                <p>• Teléfono: 123-456-7890</p>
+                <p>• Correo: vitaldent@gmail.com</p>
+                <p>• Dirección: Ab Siempre Viva 123, San Salvador</p>
+                
+                <h3 style="font-size: 24px; font-weight: 700; margin: 25px 0 15px;">Horarios:</h3>
+                <p>• Lunes a viernes: 8:00 a.m. a 5:30 p.m.</p>
+                <p>• Sábado: 8:00 a.m. a 5:00 p.m.</p>
+                <p>• Domingo: cerrado.</p>
+            </div>
+            <div class="banner-image">
+                <img width="80%" src="imagenes/atent.jpg" alt="Contacto">
+                <br/>
+            </div>
+        </section>
+        <div>
+            <br/>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Vitaldent clínica Odontológica. Todos los derechos reservados. Diseñado para brindar la mejor atención odontológica.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.style.opacity = '1';
+            });
+            event.target.style.opacity = '0.8';
+            
+            if(window.innerWidth <= 968) {
+                document.getElementById('mainNav').classList.remove('active');
+            }
+        }
+
+        function toggleMenu() {
+            document.getElementById('mainNav').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
